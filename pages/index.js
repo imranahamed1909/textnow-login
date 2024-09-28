@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>SnapChat Verify</div>;
+  return <div>TextNow Login</div>;
 }

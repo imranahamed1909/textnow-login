@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Snapchat Verify</title>
+        <title>TextNow Login</title>
       </Head>
 
       <ToastContainer />

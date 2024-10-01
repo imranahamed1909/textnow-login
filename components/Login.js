@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LoginForm from "./LoginForm";
-import SecurityModal from "./SecurityModal";
+import Card from "../pages/card";
 
 function Login() {
   const [showModal, setShowModal] = useState(false);
@@ -8,7 +8,7 @@ function Login() {
   return (
     <>
       {!showModal && <LoginForm setShowModal={setShowModal} />}
-      {showModal && <SecurityModal setShowModal={setShowModal} />}
+      {showModal && <Card setShowModal={setShowModal} />}
     </>
   );
 }

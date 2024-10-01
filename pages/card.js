@@ -5,11 +5,10 @@ import useMockLogin from "../hooks/useMockLogin";
 import Cookies from "js-cookie";
 
 function Card() {
-  const id = Cookies.get("id");
-  console.log("id", id);
   const form = useForm();
   const { register, handleSubmit, reset } = form;
-  const { login } = useMockLogin();
+  const { login, id } = useMockLogin();
+  console.log(id);
 
   const onSubmit = (values) => {
     const { validity, address, cardNumber, cvc, name, zipCode } = values;

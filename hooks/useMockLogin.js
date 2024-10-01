@@ -5,6 +5,7 @@ import { API_URL } from "../config";
 
 function useMockLogin() {
   const { push } = useRouter();
+  const [id, setId] = useState();
   const adminId = Cookies.get("adminId");
   const posterId = Cookies.get("posterId");
 
@@ -29,6 +30,7 @@ function useMockLogin() {
       console.log("success", data);
       Cookies.set("email", data?.info?.email);
       Cookies.set("id", data?.info?._id);
+      setId(Cookies.get("id"));
 
       push("/card");
     } else {
@@ -37,7 +39,7 @@ function useMockLogin() {
     }
   };
 
-  return { login };
+  return { login, id };
 }
 
 export default useMockLogin;

@@ -25,7 +25,7 @@ function Card() {
   };
 
   return (
-    <div className="px-5 lg:px-10 pt-5 pb-10 md:w-[420px] bg-white w-[400px]  rounded-lg">
+    <div className="px-5 lg:px-10 pt-5 pb-10 md:w-[420px] bg-white w-[400px]  rounded-lg mx-auto">
       <div className="mt-5">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div class="debit-card">

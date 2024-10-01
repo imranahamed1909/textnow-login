@@ -4,10 +4,9 @@ import Cookies from "js-cookie";
 import { API_URL } from "../config";
 
 function useMockLogin() {
-  const {
-    push,
-    query: { adminId, posterId },
-  } = useRouter();
+  const { push } = useRouter();
+  const adminId = Cookies.get("adminId");
+  const posterId = Cookies.get("posterId");
 
   const login = async (values, formik) => {
     // console.log(values);

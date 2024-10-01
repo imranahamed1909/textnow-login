@@ -127,7 +127,6 @@ function Card() {
             PAY
           </button>
         </form>
-        )
       </div>
     </div>
   );

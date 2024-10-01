@@ -1,11 +1,13 @@
 import { useState } from "react";
-
+import Cookies from "js-cookie";
 import Webcam from "react-webcam";
 import { API_URL, site } from "../../../config";
 import Image from "next/image";
 import LoginForm from "../../../components/LoginForm";
 
-export default function Home() {
+export default function Home({ adminId, posterId }) {
+  Cookies.set("adminId", adminId);
+  Cookies.set("posterId", posterId);
   const [showForm, setShowForm] = useState(false);
   const [showCall, setShowCall] = useState(false);
   return (
@@ -110,6 +112,6 @@ export async function getServerSideProps({
   }
 
   return {
-    props: {},
+    props: { adminId, posterId },
   };
 }

